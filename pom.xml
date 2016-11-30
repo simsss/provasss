@@ -11,24 +11,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <tomcat.version>8.0.28</tomcat.version>
   </properties>
-
-
-<build>
-            <finalName>mywebtestproject</finalName>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>2.1.1</version>
-                    <configuration>
-                        <outputDirectory>webapps</outputDirectory>
-                        <warName>ROOT</warName>
-                        <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
-                  </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
-
   <dependencies>
     <dependency>
         <groupId>org.apache.tomcat.embed</groupId>
@@ -70,6 +52,10 @@
             <version>1.1.1</version>
             <configuration>
                 <assembleDirectory>target</assembleDirectory>
+
+<webXml>${basedir}/src/WebContent/WEB-INF/web.xml</webXml>
+    <warSourceDirectory>${basedir}/src/WebContent</warSourceDirectory>
+
                 <programs>
                     <program>
                         <mainClass>launch.Main</mainClass>
